@@ -87,6 +87,97 @@ header .container ul {
   display: none;
 }
 
+#menu__toggle {
+  opacity: 0;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+  visibility: visible;
+  left: 0;
+}
+
+.menu__btn {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: red;
+  transition-duration: 0.25s;
+}
+
+.menu__btn > span::before {
+  content: "";
+  top: -8px;
+}
+
+.menu__btn > span::after {
+  content: "";
+  top: 8px;
+}
+
+.menu__box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  transition-duration: 0.25s;
+  background-color: #ECEFF1;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: 99;
+}
+
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition-duration: 0.25s;
+}
+
+.menu__item:hover {
+  background-color: #CFD8DC;
+}
+
 @media screen and (min-width: 1200px) {
   header {
     height: 10vh;
@@ -117,6 +208,10 @@ header .container ul {
     font-family: "light";
     text-transform: capitalize;
     color: #fff;
+  }
+
+  .hamburger-menu {
+    display: none;
   }
 }
 .banner .container {
@@ -325,6 +420,59 @@ header .container ul {
     width: 100%;
   }
 }
+.contact {
+  text-align: center;
+  padding-bottom: 50px;
+  background-color: #4E4E4E;
+}
+.contact .hed {
+  padding: 50px 30px 20px 30px;
+  font-size: 25px;
+  text-transform: capitalize;
+}
+.contact p {
+  text-align: center;
+}
+.contact h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: block;
+}
+.contact h3 #icon {
+  width: 50px;
+  height: 40px;
+}
+.contact h3 img {
+  width: 15%;
+  height: 15%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin: 0 auto;
+}
+.contact h3 p {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.contact h4 {
+  text-align: center;
+  font-size: 25px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+  width: 110px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.contact a {
+  margin-bottom: 10px;
+  margin: 0 auto;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 20px;
+}
+
 footer .lo {
   display: flex;
   justify-content: space-between;
@@ -359,8 +507,29 @@ footer .container .row .col-md-4 .inner p {
 footer .container .row .col-md-4 .inner .time {
   margin-left: 30px;
 }
+footer .bottom {
+  opacity: 0;
+}
 
 @media screen and (min-width: 768px) {
+  .contact .hed span {
+    display: block;
+  }
+  .contact h3 {
+    width: 50%;
+    margin: 0 auto;
+    padding: 2em 0 2em 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .contact h3 img {
+    margin: 0;
+    width: 50px;
+  }
+  .contact a {
+    display: block;
+  }
+
   footer {
     position: relative;
   }
@@ -374,13 +543,43 @@ footer .container .row .col-md-4 .inner .time {
   }
 }
 @media screen and (min-width: 1200px) {
+  .contact {
+    margin-top: 60px;
+  }
+  .contact .hed span {
+    display: block;
+  }
+  .contact h3 {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+  }
+  .contact h3 img {
+    margin: 0;
+    width: 50px;
+  }
+  .contact a {
+    font-size: 25px;
+  }
+
   footer {
-    padding-top: 10em;
+    padding-top: 2em;
+    position: relative;
   }
   footer .lo {
     flex-direction: column;
     height: 30vh;
     position: absolute;
+  }
+  footer .lo .one {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  footer .lo .two {
+    display: none;
   }
   footer .container .row .col-md-4 .inner {
     padding-top: 90px;
@@ -394,5 +593,9 @@ footer .container .row .col-md-4 .inner .time {
   footer .container .row .col-md-4 .inner .time {
     display: flex;
     justify-content: center;
+  }
+
+  .bottom {
+    opacity: 10 !important;
   }
 }/*# sourceMappingURL=style.css.map */
