@@ -279,11 +279,12 @@ header .container ul {
     padding-top: 120px;
   }
   .banner .container .info h1 {
-    font-size: 70px;
+    font-size: 50px;
     font-family: "light";
   }
   .banner .container .info p {
-    font-size: 25px;
+    font-size: 20px;
+    padding-top: 50px;
   }
   .banner .container .image {
     width: 50%;
