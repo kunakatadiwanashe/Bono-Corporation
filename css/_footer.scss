@@ -43,11 +43,15 @@ footer{
     .container{
         .row{
             .col-md-4{
+                padding-bottom: 40px;
                
-                .log{
-                    width: 200px;height: 200px; margin: 0 auto;
+                .partners{
+             display: flex; justify-content:  space-between;flex-wrap: wrap;
+             h2{
+                 width: 100%;color: #FF5757;text-transform: capitalize;
+             }
                     img{
-                        width: 100%;height: 100%;
+                        width: 50%;height: 30%;object-fit: contain;
                     }
                 }
                 h2{
@@ -99,9 +103,7 @@ footer{
 
     footer{
         position: relative;
-        .lo{
-            flex-direction: column;height: 30vh;position: absolute;
-        }
+        
         .container{
             .row{
                 .col-md-4{
@@ -149,17 +151,13 @@ footer{
 
     footer{
       padding-top: 2em;position: relative;;
-        .lo{
-            flex-direction: column;height: 30vh;position: absolute;
-            .one{
-                position: absolute;top: 0;left: 0;
-            }
-            .two{display: none;}
-          
-        }
+     
         .container{
             .row{
                 .col-md-4{
+                    .partners{
+                        padding-top: 90px;
+                    }
                     .inner{
                         padding-top: 90px;
                         h4{
